@@ -354,3 +354,32 @@
   transform: scale(0.95);
   background-color: #8bbefa;
 }
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animations for Medication Cards */
+.medication-card {
+  transition: transform 300ms cubic-bezier(0.25, 1, 0.5, 1), box-shadow 300ms cubic-bezier(0.25, 1, 0.5, 1), background-color 150ms ease;
+  cursor: pointer;
+}
+
+.medication-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fafafa !important;
+}
+
+.medication-card:active {
+  transform: scale(0.98);
+  background-color: #f0f0f0 !important;
+}

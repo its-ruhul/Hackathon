@@ -8,10 +8,13 @@ import FamilyContactsPage from './webpage/FamilyContactsPage';
 import MedicationPage from './webpage/MedicationPage';
 import EmergencyPage from './webpage/EmergencyPage';
 import DoctorsPage from './webpage/DoctorsPage';
+import NotificationBanner from './webpage/NotificationBanner';
 
 function App() {
   return (
-    <Routes>
+    <>
+      <NotificationBanner />
+      <Routes>
       <Route path="/" element={<CoverPage />} />
       <Route path="/content" element={<IndexPage />} />
       <Route path="/family-contacts" element={<FamilyContactsPage />} />
@@ -23,6 +26,7 @@ function App() {
       {/* Fallback for "Prologue" which isn't defined explicitly but might be clicked */}
       <Route path="/guide" element={<IndexPage />} />
     </Routes>
+    </>
   );
 }
 
