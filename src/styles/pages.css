@@ -1,0 +1,194 @@
+.book-page {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1; /* Above the texture */
+  flex-grow: 1;
+}
+
+.index-title {
+  font-family: var(--heading);
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--text-h);
+  text-align: center;
+  margin: 0 0 10px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.page-title {
+  font-family: var(--heading);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-h);
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+/* Decorative divider under title */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  height: 1px;
+  width: 40%;
+  background-color: var(--border);
+}
+
+.divider-icon {
+  margin: 0 15px;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+.index-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.index-item {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  position: relative;
+}
+
+.index-item:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid var(--border);
+  transform: translateX(5px);
+}
+
+.item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--accent);
+  margin-right: 24px;
+  opacity: 0.9;
+}
+
+.item-title {
+  font-family: var(--heading);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--text-h);
+  flex-grow: 1;
+}
+
+.item-page-num {
+  font-family: var(--body);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--text);
+  margin-left: 20px;
+}
+
+/* Dotted leader for table of contents feel */
+.item-leader {
+  flex-grow: 1;
+  border-bottom: 2px dotted rgba(0,0,0,0.15);
+  margin: 0 15px;
+  position: relative;
+  top: 6px;
+}
+
+.back-button {
+  margin-top: auto;
+  align-self: center;
+  padding: 12px 24px;
+  background: transparent;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--heading);
+  font-size: 18px;
+  color: var(--text-h);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.back-button:hover {
+  background: var(--text-h);
+  color: var(--bg);
+  border-color: var(--text-h);
+}
+
+.page-content-box {
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: 8px;
+  min-height: 200px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 600px) {
+  .index-title {
+    font-size: 48px;
+  }
+  .item-title {
+    font-size: 22px;
+  }
+}
+
+/* Cover Page Specific Styles */
+.cover-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.cover-title {
+  font-family: var(--heading);
+  font-size: 96px;
+  color: var(--text-h);
+  text-align: center;
+  margin: 0;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  border-bottom: 4px solid var(--text-h);
+  padding-bottom: 20px;
+}
+
+.cover-subtitle {
+  font-family: var(--heading);
+  font-size: 24px;
+  color: var(--accent);
+  margin-top: 30px;
+  text-align: center;
+  font-style: italic;
+}
+
+.enter-button {
+  margin-top: 80px;
+  padding: 15px 40px;
+  font-family: var(--heading);
+  font-size: 20px;
+  background: transparent;
+  color: var(--text-h);
+  border: 2px solid var(--text-h);
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.enter-button:hover {
+  background: var(--text-h);
+  color: var(--bg);
+}
