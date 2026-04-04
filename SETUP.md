@@ -6,12 +6,3 @@ Have NodeJS installed on your system.
 
 Run the following command in terminal: npm install <br>
 Start the server by: npm run dev <br>
-
-<h4>AI RELATED THINGS</h4>
-
-1. Helps with frontend projects <br>
-npx skills add pbakaus/impeccable <br>
-https://impeccable.style/cheatsheet <br>
-
-2. AI Agent <br>
-npm install -g @google/gemini-cli <br>
