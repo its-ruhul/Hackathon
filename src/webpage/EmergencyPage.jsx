@@ -167,10 +167,10 @@ export default function EmergencyPage() {
         {publicServices.map((service, idx) => (
           <div key={`pub-${idx}`} style={{
             border: '3px solid var(--text-h)',
-            borderRadius: '24px',
-            minHeight: '220px',
+            borderRadius: '20px',
             display: 'flex',
-            padding: '30px',
+            alignItems: 'center',
+            padding: '15px 20px',
             margin: '0 20px', 
             position: 'relative',
             backgroundColor: '#ffffff',
@@ -179,15 +179,15 @@ export default function EmergencyPage() {
             {/* Header Badge */}
             <div style={{
               position: 'absolute',
-              top: '-25px',
+              top: '-20px',
               left: '50%',
               transform: 'translateX(-50%)',
               backgroundColor: service.color, 
               border: '3px solid var(--text-h)',
-              borderRadius: '20px',
-              padding: '6px 30px',
+              borderRadius: '16px',
+              padding: '4px 20px',
               fontFamily: 'var(--heading)',
-              fontSize: '22px',
+              fontSize: '18px',
               fontWeight: 700,
               color: 'var(--text-h)',
               letterSpacing: '1px',
@@ -198,42 +198,32 @@ export default function EmergencyPage() {
               {service.title}
             </div>
 
-            {/* Content Container */}
-            <div style={{ display: 'flex', width: '100%', gap: '40px', marginTop: '10px' }}>
-              {/* Image / Icon */}
-              <div style={{
-                width: '160px',
-                height: '160px',
-                flexShrink: 0,
-                border: '3px solid var(--text-h)',
-                borderRadius: '24px',
-                backgroundColor: service.color,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '80px',
-                overflow: 'hidden'
-              }}>
-                {service.icon}
-              </div>
+            {/* Image / Icon */}
+            <div style={{
+              width: '74px',
+              height: '74px',
+              flexShrink: 0,
+              border: '3px solid var(--text-h)',
+              borderRadius: '16px',
+              backgroundColor: service.color,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '36px',
+              overflow: 'hidden'
+            }}>
+              {service.icon}
+            </div>
 
-              {/* Data Fields */}
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                gap: '18px',
-                flexGrow: 1,
-                fontFamily: 'var(--heading)',
-                fontSize: '24px',
-                color: 'var(--text-h)'
-              }}>
-                <div><strong>Service:</strong> {service.title}</div>
-                <div><strong>Number:</strong> {service.number}</div>
-                <div style={{ lineHeight: 1.4 }}>
-                  <strong>Description:</strong> {service.desc}
-                </div>
-              </div>
+            {/* Data Fields */}
+            <div style={{
+              flexGrow: 1,
+              fontFamily: 'var(--heading)',
+              fontSize: '28px',
+              color: 'var(--text-h)',
+              marginLeft: '24px'
+            }}>
+              <strong>Dial: {service.number}</strong>
             </div>
 
             {/* Call Button */}
@@ -242,16 +232,13 @@ export default function EmergencyPage() {
               className="action-btn"
               title={`Call ${service.title}`}
               style={{
-                position: 'absolute',
-                bottom: '-25px',
-                right: '-25px',
                 width: '64px',
                 height: '64px',
-                flex: 'none',
+                flexShrink: 0,
                 borderRadius: '50%',
                 backgroundColor: '#d4f0d4', // Green for calling
                 border: '3px solid var(--text-h)',
-                display: 'flex', // overrides action-btn base flex appropriately
+                display: 'flex', 
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
