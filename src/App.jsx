@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import './styles/pages.css';
 
 import CoverPage from './webpage/CoverPage';
-import LoginPage from './webpage/LoginPage';
 import IndexPage from './webpage/IndexPage';
 import FamilyContactsPage from './webpage/FamilyContactsPage';
 import MedicationPage from './webpage/MedicationPage';

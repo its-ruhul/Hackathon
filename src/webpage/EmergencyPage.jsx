@@ -235,7 +235,7 @@ export default function EmergencyPage() {
                 width: '64px',
                 height: '64px',
                 flexShrink: 0,
-                borderRadius: '50%',
+                borderRadius: '16px', // Rounded square instead of ellipse
                 backgroundColor: '#d4f0d4', // Green for calling
                 border: '3px solid var(--text-h)',
                 display: 'flex', 

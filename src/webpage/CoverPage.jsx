@@ -51,29 +51,6 @@ function CoverPage() {
             Open Book
           </button>
         </Link>
-
-        <Link to="/login" style={{ textDecoration: 'none' }}>
-          <button 
-            className="enter-button" 
-            style={{ 
-              backgroundColor: 'transparent', 
-              border: '2px solid var(--text-h)',
-              boxShadow: '2px 4px 0px rgba(0,0,0,0.15)',
-              fontWeight: 'bold',
-              fontSize: '18px',
-              padding: '8px 24px',
-              borderRadius: '30px',
-              color: 'var(--text-h)',
-              marginTop: '0',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease'
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#ffb6c1'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.transform = 'translateY(0)'; }}
-          >
-            Login
-          </button>
-        </Link>
       </div>
     </div>
   );
