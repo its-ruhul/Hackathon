@@ -13,6 +13,12 @@ const defaultEmergencyContacts = [
   }
 ];
 
+const publicServices = [
+  { title: 'Police', number: '100', icon: '🚓', color: '#cce9ff', desc: 'For immediate police assistance' },
+  { title: 'Ambulance', number: '102', icon: '🚑', color: '#ffcccc', desc: 'For medical emergencies' },
+  { title: 'Fire Brigade', number: '101', icon: '🚒', color: '#fef08a', desc: 'For fire or rescue operations' },
+];
+
 export default function EmergencyPage() {
   const [contacts, setContacts] = useState(() => {
     const saved = localStorage.getItem('emergencyContacts');
@@ -153,6 +159,108 @@ export default function EmergencyPage() {
             >
               <img src={pencilIcon} alt="Edit" style={{ width: 28, height: 28 }} />
             </button>
+
+          </div>
+        ))}
+
+        {/* Public Emergency Services */}
+        {publicServices.map((service, idx) => (
+          <div key={`pub-${idx}`} style={{
+            border: '3px solid var(--text-h)',
+            borderRadius: '24px',
+            minHeight: '220px',
+            display: 'flex',
+            padding: '30px',
+            margin: '0 20px', 
+            position: 'relative',
+            backgroundColor: '#ffffff',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.05)'
+          }}>
+            {/* Header Badge */}
+            <div style={{
+              position: 'absolute',
+              top: '-25px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              backgroundColor: service.color, 
+              border: '3px solid var(--text-h)',
+              borderRadius: '20px',
+              padding: '6px 30px',
+              fontFamily: 'var(--heading)',
+              fontSize: '22px',
+              fontWeight: 700,
+              color: 'var(--text-h)',
+              letterSpacing: '1px',
+              textTransform: 'uppercase',
+              whiteSpace: 'nowrap',
+              zIndex: 10
+            }}>
+              {service.title}
+            </div>
+
+            {/* Content Container */}
+            <div style={{ display: 'flex', width: '100%', gap: '40px', marginTop: '10px' }}>
+              {/* Image / Icon */}
+              <div style={{
+                width: '160px',
+                height: '160px',
+                flexShrink: 0,
+                border: '3px solid var(--text-h)',
+                borderRadius: '24px',
+                backgroundColor: service.color,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '80px',
+                overflow: 'hidden'
+              }}>
+                {service.icon}
+              </div>
+
+              {/* Data Fields */}
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                gap: '18px',
+                flexGrow: 1,
+                fontFamily: 'var(--heading)',
+                fontSize: '24px',
+                color: 'var(--text-h)'
+              }}>
+                <div><strong>Service:</strong> {service.title}</div>
+                <div><strong>Number:</strong> {service.number}</div>
+                <div style={{ lineHeight: 1.4 }}>
+                  <strong>Description:</strong> {service.desc}
+                </div>
+              </div>
+            </div>
+
+            {/* Call Button */}
+            <a
+              href={`tel:${service.number}`}
+              className="action-btn"
+              title={`Call ${service.title}`}
+              style={{
+                position: 'absolute',
+                bottom: '-25px',
+                right: '-25px',
+                width: '64px',
+                height: '64px',
+                flex: 'none',
+                borderRadius: '50%',
+                backgroundColor: '#d4f0d4', // Green for calling
+                border: '3px solid var(--text-h)',
+                display: 'flex', // overrides action-btn base flex appropriately
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                boxShadow: '2px 4px 0 rgba(0,0,0,0.15)',
+                zIndex: 10
+              }}
+            >
+              <img src={phoneIcon} alt="Call" style={{ width: 28, height: 28 }} />
+            </a>
 
           </div>
         ))}
