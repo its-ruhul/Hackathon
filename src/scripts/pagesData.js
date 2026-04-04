@@ -1,13 +1,13 @@
 import featherIcon from '../assets/feather.svg';
-import bookOpenIcon from '../assets/book-open.svg';
-import compassIcon from '../assets/compass.svg';
-import mapIcon from '../assets/map.svg';
-import coffeeIcon from '../assets/coffee.svg';
+import userIcon from '../assets/user.svg';
+import pillIcon from '../assets/pill.svg';
+import phoneIcon from '../assets/phone.svg';
+import plusIcon from '../assets/plus.svg';
 
 export const pagesData = [
-  { title: 'Prologue: How to use the App', icon: featherIcon, page: 'i', path: '/guide' },
-  { title: 'I: Family Contacts', icon: bookOpenIcon, page: '1', path: '/family-contacts' },
-  { title: 'II: Medication', icon: compassIcon, page: '14', path: '/medication' },
-  { title: 'III: Emergency', icon: mapIcon, page: '42', path: '/emergency' },
-  { title: 'IV: Doctors', icon: coffeeIcon, page: '108', path: '/doctors' },
+  { title: 'How to use the App', icon: featherIcon, page: '', path: '/guide' },
+  { title: 'Family Contacts', icon: userIcon, page: '', path: '/family-contacts' },
+  { title: 'Medication', icon: pillIcon, page: '', path: '/medication' },
+  { title: 'Emergency', icon: phoneIcon, page: '', path: '/emergency' },
+  { title: 'Doctors', icon: plusIcon, page: '', path: '/doctors' },
 ];

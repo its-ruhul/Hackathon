@@ -9,10 +9,13 @@ import MedicationPage from './webpage/MedicationPage';
 import EmergencyPage from './webpage/EmergencyPage';
 import DoctorsPage from './webpage/DoctorsPage';
 import NotificationBanner from './webpage/NotificationBanner';
+import NavBar from './webpage/NavBar';
+import GuidePage from './webpage/GuidePage';
 
 function App() {
   return (
     <>
+      <NavBar />
       <NotificationBanner />
       <Routes>
       <Route path="/" element={<CoverPage />} />
@@ -23,8 +26,8 @@ function App() {
       <Route path="/doctors" element={<DoctorsPage />} />
       {/* testing */}
 
-      {/* Fallback for "Prologue" which isn't defined explicitly but might be clicked */}
-      <Route path="/guide" element={<IndexPage />} />
+      {/* Guide Page route */}
+      <Route path="/guide" element={<GuidePage />} />
     </Routes>
     </>
   );

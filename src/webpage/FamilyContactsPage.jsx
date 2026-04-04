@@ -165,7 +165,7 @@ function FamilyContactsPage() {
       </div>
 
       <Link to="/content" style={{ marginTop: 'auto', alignSelf: 'center' }}>
-        <button className="back-button">Back to Content</button>
+        <button className="back-button">Back to Index</button>
       </Link>
     </div>
   );

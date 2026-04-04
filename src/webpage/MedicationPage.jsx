@@ -23,7 +23,7 @@ export default function MedicationPage() {
     if (!time) return;
     const instruction = window.prompt("Enter instruction (e.g. have after meal):");
     if (!instruction) return;
-    
+
     const newMed = {
       id: Date.now(),
       name: name.trim(),
@@ -31,27 +31,27 @@ export default function MedicationPage() {
       icon: pillIcon,
       instruction: instruction.trim()
     };
-    
+
     setMedicines([...medicines, newMed]);
   };
 
   const pastelColors = ['#fef08a', '#cce9ff', '#ffd1dc', '#dcfce7', '#e9d5ff'];
-  
+
   return (
     <div className="book-page">
       <h2 className="page-title">Medication</h2>
-      
-      <div className="page-content-box" style={{ 
-        border: 'none', 
-        padding: '0', 
-        display: 'flex', 
-        flexDirection: 'column', 
-        gap: '24px' 
+
+      <div className="page-content-box" style={{
+        border: 'none',
+        padding: '0',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '24px'
       }}>
         {medicines.map((medicine, index) => (
-          <div key={medicine.id} className="medication-card" style={{ 
+          <div key={medicine.id} className="medication-card" style={{
             backgroundColor: '#ffffff',
-            border: '3px solid var(--text-h)', 
+            border: '3px solid var(--text-h)',
             borderRadius: '24px',
             padding: '20px',
             display: 'flex',
@@ -104,14 +104,14 @@ export default function MedicationPage() {
             </div>
           </div>
         ))}
-        
+
         {/* Plus Button Card */}
-        <div 
+        <div
           onClick={handleAddMedicine}
           className="medication-card"
-          style={{ 
+          style={{
             backgroundColor: 'transparent',
-            border: '3px dashed var(--text-h)', 
+            border: '3px dashed var(--text-h)',
             borderRadius: '24px',
             padding: '20px',
             display: 'flex',
@@ -146,7 +146,7 @@ export default function MedicationPage() {
       </div>
 
       <Link to="/content" style={{ marginTop: 'auto', alignSelf: 'center' }}>
-        <button className="back-button">Back to Content</button>
+        <button className="back-button">Back to Index</button>
       </Link>
     </div>
   );

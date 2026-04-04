@@ -383,3 +383,52 @@
   transform: scale(0.98);
   background-color: #f0f0f0 !important;
 }
+
+/* NavBar Styles */
+.sticky-navbar {
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
+  background-color: var(--bg);
+  border-bottom: 3px solid var(--text-h);
+  padding: 15px 30px;
+  margin: -80px -100px 40px -100px;
+  border-radius: 3px 12px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.navbar-logo-container {
+  background-color: #ffb6c1;
+  padding: 8px;
+  border-radius: 12px;
+  display: flex;
+  border: 2px solid var(--text-h);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+}
+
+.navbar-title {
+  font-family: var(--heading);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-h);
+}
+
+@media (max-width: 768px) {
+  .sticky-navbar {
+    margin: -60px -40px 30px -40px;
+    border-radius: 0;
+  }
+}
