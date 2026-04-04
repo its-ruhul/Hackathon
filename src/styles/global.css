@@ -20,6 +20,7 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #d1c8b9;
   background-image: radial-gradient(circle at center, #d1c8b9 0%, #b8af9f 100%);
   padding: 40px 20px;
@@ -29,38 +30,64 @@ body {
 
 #root {
   width: 100%;
-  max-width: 760px;
-  background: var(--bg);
-  box-shadow: 
-    -5px 0 10px rgba(0,0,0,0.05), 
-    10px 10px 30px rgba(0,0,0,0.15), 
-    inset 4px 0 8px rgba(255,255,255,0.7),
-    inset -1px 0 2px rgba(0,0,0,0.05);
-  border-radius: 3px 12px 12px 3px;
-  padding: 80px 100px;
-  box-sizing: border-box;
+  max-width: 794px;
+  aspect-ratio: 1 / 1.414;
   position: relative;
-  border-left: 2px solid rgba(0,0,0,0.05);
-  min-height: 80vh;
+  perspective: 2500px;
+  margin: 0 auto;
+}
+
+.page-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg);
+  background-image: url('../assets/background.png');
+  background-size: cover;
+  background-position: center;
+  box-shadow:
+    -5px 0 10px rgba(0, 0, 0, 0.05),
+    10px 10px 30px rgba(0, 0, 0, 0.15),
+    inset 4px 0 8px rgba(255, 255, 255, 0.7),
+    inset -1px 0 2px rgba(0, 0, 0, 0.05);
+  border-radius: 3px 12px 12px 3px;
+  padding: 80px 80px;
+  box-sizing: border-box;
+  border-left: 2px solid rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  backface-visibility: hidden;
+  /* Scrollbar hiding for cleaner look */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.page-container::-webkit-scrollbar {
+  display: none;
 }
 
 /* Page inner spine shadow */
-#root::before {
+.page-container::before {
   content: '';
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   width: 50px;
-  background: linear-gradient(to right, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.02) 40%, rgba(0, 0, 0, 0) 100%);
   border-radius: 3px 0 0 3px;
   pointer-events: none;
+  z-index: 5;
 }
 
 /* Subtle paper texture */
-#root::after {
+.page-container::after {
   content: '';
   position: absolute;
   top: 0;
@@ -78,13 +105,19 @@ body {
   body {
     padding: 0;
   }
+
   #root {
+    aspect-ratio: auto;
+    height: 100svh;
+  }
+
+  .page-container {
     padding: 60px 40px;
     border-radius: 0;
     box-shadow: none;
-    min-height: 100svh;
   }
-  #root::before {
+
+  .page-container::before {
     display: none;
   }
 }
