@@ -7,7 +7,18 @@ import plusIcon from '../assets/plus.svg';
 export default function MedicationPage() {
   const [medicines, setMedicines] = useState(() => {
     const saved = localStorage.getItem('medicinesList');
-    return saved ? JSON.parse(saved) : medicinesData;
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      // Migration: Add images to original items if they're missing
+      return parsed.map(p => {
+        const defaultMatch = medicinesData.find(m => m.id === p.id);
+        if (defaultMatch && !p.image) {
+          return { ...p, image: defaultMatch.image };
+        }
+        return p;
+      });
+    }
+    return medicinesData;
   });
 
   useEffect(() => {
@@ -58,20 +69,34 @@ export default function MedicationPage() {
             alignItems: 'flex-start',
             gap: '20px'
           }}>
-            {/* Left Icon Box (Pastel) */}
-            <div style={{
-              backgroundColor: pastelColors[index % pastelColors.length],
-              border: '3px solid var(--text-h)',
-              borderRadius: '20px',
-              minWidth: '90px',
-              height: '90px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0
-            }}>
-              <img src={medicine.icon || pillIcon} alt="medicine icon" style={{ width: 44, height: 44 }} />
-            </div>
+            {/* Left Icon Box / Image Box */}
+            {medicine.image ? (
+              <div style={{
+                border: '3px solid var(--text-h)',
+                borderRadius: '20px',
+                width: '100px',
+                height: '100px',
+                overflow: 'hidden',
+                flexShrink: 0,
+                boxShadow: '2px 3px 0 rgba(0,0,0,0.1)'
+              }}>
+                <img src={medicine.image} alt={medicine.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+            ) : (
+              <div style={{
+                backgroundColor: pastelColors[index % pastelColors.length],
+                border: '3px solid var(--text-h)',
+                borderRadius: '20px',
+                minWidth: '90px',
+                height: '90px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
+              }}>
+                <img src={medicine.icon || pillIcon} alt="medicine icon" style={{ width: 44, height: 44 }} />
+              </div>
+            )}
 
             {/* Right Information Section */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', flexGrow: 1, paddingTop: '5px' }}>

@@ -13,6 +13,12 @@ const defaultEmergencyContacts = [
   }
 ];
 
+const publicServices = [
+  { title: 'Police', number: '100', icon: '🚓', color: '#cce9ff', desc: 'For immediate police assistance' },
+  { title: 'Ambulance', number: '102', icon: '🚑', color: '#ffcccc', desc: 'For medical emergencies' },
+  { title: 'Fire Brigade', number: '101', icon: '🚒', color: '#fef08a', desc: 'For fire or rescue operations' },
+];
+
 export default function EmergencyPage() {
   const [contacts, setContacts] = useState(() => {
     const saved = localStorage.getItem('emergencyContacts');
@@ -153,6 +159,95 @@ export default function EmergencyPage() {
             >
               <img src={pencilIcon} alt="Edit" style={{ width: 28, height: 28 }} />
             </button>
+
+          </div>
+        ))}
+
+        {/* Public Emergency Services */}
+        {publicServices.map((service, idx) => (
+          <div key={`pub-${idx}`} style={{
+            border: '3px solid var(--text-h)',
+            borderRadius: '20px',
+            display: 'flex',
+            alignItems: 'center',
+            padding: '15px 20px',
+            margin: '0 20px', 
+            position: 'relative',
+            backgroundColor: '#ffffff',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.05)'
+          }}>
+            {/* Header Badge */}
+            <div style={{
+              position: 'absolute',
+              top: '-20px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              backgroundColor: service.color, 
+              border: '3px solid var(--text-h)',
+              borderRadius: '16px',
+              padding: '4px 20px',
+              fontFamily: 'var(--heading)',
+              fontSize: '18px',
+              fontWeight: 700,
+              color: 'var(--text-h)',
+              letterSpacing: '1px',
+              textTransform: 'uppercase',
+              whiteSpace: 'nowrap',
+              zIndex: 10
+            }}>
+              {service.title}
+            </div>
+
+            {/* Image / Icon */}
+            <div style={{
+              width: '74px',
+              height: '74px',
+              flexShrink: 0,
+              border: '3px solid var(--text-h)',
+              borderRadius: '16px',
+              backgroundColor: service.color,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '36px',
+              overflow: 'hidden'
+            }}>
+              {service.icon}
+            </div>
+
+            {/* Data Fields */}
+            <div style={{
+              flexGrow: 1,
+              fontFamily: 'var(--heading)',
+              fontSize: '28px',
+              color: 'var(--text-h)',
+              marginLeft: '24px'
+            }}>
+              <strong>Dial: {service.number}</strong>
+            </div>
+
+            {/* Call Button */}
+            <a
+              href={`tel:${service.number}`}
+              className="action-btn"
+              title={`Call ${service.title}`}
+              style={{
+                width: '64px',
+                height: '64px',
+                flexShrink: 0,
+                borderRadius: '50%',
+                backgroundColor: '#d4f0d4', // Green for calling
+                border: '3px solid var(--text-h)',
+                display: 'flex', 
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                boxShadow: '2px 4px 0 rgba(0,0,0,0.15)',
+                zIndex: 10
+              }}
+            >
+              <img src={phoneIcon} alt="Call" style={{ width: 28, height: 28 }} />
+            </a>
 
           </div>
         ))}
