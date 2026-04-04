@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import bookmarkIcon from '../assets/bookmark.svg';
 import { pagesData } from '../scripts/pagesData';
@@ -14,7 +14,8 @@ function IndexPage() {
 
   return (
     <div className="book-page">
-      <h1 className="index-title" style={{ marginTop: '30px' }}>Index</h1>
+
+      <h1 className="index-title" style={{ marginTop: '20px' }}>Index</h1>
       
       <div className="divider">
         <img src={bookmarkIcon} alt="Divider" className="divider-icon" style={{ width: 32, height: 32 }} />

@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router';
 import './styles/pages.css';
 
 import CoverPage from './webpage/CoverPage';
+import LoginPage from './webpage/LoginPage';
 import IndexPage from './webpage/IndexPage';
 import FamilyContactsPage from './webpage/FamilyContactsPage';
 import MedicationPage from './webpage/MedicationPage';
@@ -19,6 +20,7 @@ function App() {
       <NotificationBanner />
       <Routes>
       <Route path="/" element={<CoverPage />} />
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/content" element={<IndexPage />} />
       <Route path="/family-contacts" element={<FamilyContactsPage />} />
       <Route path="/medication" element={<MedicationPage />} />

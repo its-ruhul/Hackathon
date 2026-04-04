@@ -28,27 +28,53 @@ function CoverPage() {
         <p className="cover-subtitle" style={{ margin: '0', fontSize: '32px', color: 'var(--text-h)', fontWeight: '700' }}>Care. Compassion. Memory.</p>
       </div>
       
-      <Link to="/content" style={{ zIndex: 10, textDecoration: 'none' }}>
-        <button 
-          className="enter-button" 
-          style={{ 
-            backgroundColor: '#cce9ff', 
-            border: '3px solid var(--text-h)',
-            boxShadow: '4px 6px 0px rgba(0,0,0,0.15)',
-            fontWeight: 'bold',
-            fontSize: '28px',
-            padding: '15px 50px',
-            borderRadius: '50px',
-            color: 'var(--text-h)',
-            marginTop: '30px',
-            cursor: 'pointer'
-          }}
-          onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#a4d3fc'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#cce9ff'; e.currentTarget.style.transform = 'translateY(0)'; }}
-        >
-          Open Book
-        </button>
-      </Link>
+      <div style={{ zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px', marginTop: '30px' }}>
+        <Link to="/content" style={{ textDecoration: 'none' }}>
+          <button 
+            className="enter-button" 
+            style={{ 
+              backgroundColor: '#cce9ff', 
+              border: '3px solid var(--text-h)',
+              boxShadow: '4px 6px 0px rgba(0,0,0,0.15)',
+              fontWeight: 'bold',
+              fontSize: '28px',
+              padding: '15px 50px',
+              borderRadius: '50px',
+              color: 'var(--text-h)',
+              marginTop: '0',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#a4d3fc'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#cce9ff'; e.currentTarget.style.transform = 'translateY(0)'; }}
+          >
+            Open Book
+          </button>
+        </Link>
+
+        <Link to="/login" style={{ textDecoration: 'none' }}>
+          <button 
+            className="enter-button" 
+            style={{ 
+              backgroundColor: 'transparent', 
+              border: '2px solid var(--text-h)',
+              boxShadow: '2px 4px 0px rgba(0,0,0,0.15)',
+              fontWeight: 'bold',
+              fontSize: '18px',
+              padding: '8px 24px',
+              borderRadius: '30px',
+              color: 'var(--text-h)',
+              marginTop: '0',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#ffb6c1'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.transform = 'translateY(0)'; }}
+          >
+            Login
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
