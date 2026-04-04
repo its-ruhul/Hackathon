@@ -10,23 +10,23 @@ import dadImage from '../assets/dad.png';
 import sisterImage from '../assets/sister.png';
 
 const defaultProfiles = [
-  { id: 1, name: 'Mom', color: '#ffd1dc', image: momImage },
-  { id: 2, name: 'Dad', color: '#cce9ff', image: dadImage },
-  { id: 3, name: 'Sister', color: '#dcfce7', image: sisterImage },
+  { id: 1, name: 'Aniket Bahu', color: '#ffd1dc', image: momImage },
+  { id: 2, name: 'Ruhul Beta', color: '#cce9ff', image: dadImage },
+  { id: 3, name: 'Archi Beti', color: '#dcfce7', image: sisterImage },
 ];
 
 const pastelColors = ['#ffd1dc', '#cce9ff', '#dcfce7', '#fef08a', '#e9d5ff', '#ffedd5', '#fed7aa'];
 
 function FamilyContactsPage() {
   const [profiles, setProfiles] = useState(() => {
-    // We use a new key 'familyContactsV2' to clear out the old 5-contact testing array 
-    // and initialize properly with the new 3 specific image-based defaults.
-    const saved = localStorage.getItem('familyContactsV2');
+    // We use a new key 'familyContactsV3' to clear out the old cached array 
+    // and initialize properly with the new names.
+    const saved = localStorage.getItem('familyContactsV3');
     return saved ? JSON.parse(saved) : defaultProfiles;
   });
 
   useEffect(() => {
-    localStorage.setItem('familyContactsV2', JSON.stringify(profiles));
+    localStorage.setItem('familyContactsV3', JSON.stringify(profiles));
   }, [profiles]);
 
   const handleAddUser = () => {
@@ -56,7 +56,7 @@ function FamilyContactsPage() {
         gap: '15px',
       }}>
         {profiles.map((profile) => (
-          <div key={profile.id} style={{
+          <div key={profile.id} className="contact-card" style={{
             border: '3px solid var(--text-h)',
             borderRadius: '24px',
             backgroundColor: '#ffffff',
@@ -113,37 +113,17 @@ function FamilyContactsPage() {
               width: '100%',
               justifyContent: 'center'
             }}>
-              <button style={{
-                flex: 1,
-                display: 'flex',
-                cursor: 'pointer',
-                flexDirection: 'column',
-                alignItems: 'center',
-                backgroundColor: '#cce9ff',
-                border: '3px solid var(--text-h)',
-                borderRadius: '12px',
-                padding: '6px',
-                gap: '4px'
-              }}>
-                <img src={messageIcon} alt="SMS" style={{ width: 18 }} />
-                <span style={{ fontSize: '10px', fontWeight: 'bold' }}>SMS</span>
-              </button>
+              <a href="sms:+1234567890?body=Hello%20there!">
+                <button className="action-btn">
+                  <img src={messageIcon} alt="SMS" style={{ width: 24, height: 24 }} />
+                </button>
+              </a>
 
-              <button style={{
-                flex: 1,
-                display: 'flex',
-                cursor: 'pointer',
-                flexDirection: 'column',
-                alignItems: 'center',
-                backgroundColor: '#cce9ff',
-                border: '3px solid var(--text-h)',
-                borderRadius: '12px',
-                padding: '6px',
-                gap: '4px'
-              }}>
-                <img src={videoIcon} alt="Video" style={{ width: 18 }} />
-                <span style={{ fontSize: '10px', fontWeight: 'bold' }}>Video</span>
-              </button>
+              <a href="https://wa.me/917635835182">
+                <button className="action-btn">
+                  <img src={videoIcon} alt="Video" style={{ width: 24, height: 24 }} />
+                </button>
+              </a>
             </div>
           </div>
         ))}
