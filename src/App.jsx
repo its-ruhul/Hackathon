@@ -18,7 +18,8 @@ function App() {
       <Route path="/medication" element={<MedicationPage />} />
       <Route path="/emergency" element={<EmergencyPage />} />
       <Route path="/doctors" element={<DoctorsPage />} />
-      
+      {/* testing */}
+
       {/* Fallback for "Prologue" which isn't defined explicitly but might be clicked */}
       <Route path="/guide" element={<IndexPage />} />
     </Routes>
